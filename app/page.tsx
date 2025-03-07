@@ -1,101 +1,265 @@
-import Image from "next/image";
+"use client";
+import Image from 'next/image';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [scrollY, setScrollY] = useState(0);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const fadeVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 }
+  };
+
+  const topics = [
+    {
+      title: "Historical Context",
+      description: "Explore the causes and historical background that led to the bombings.",
+      href: "/topics/historical-context",
+      icon: "📜"
+    },
+    {
+      title: "The Bombings",
+      description: "Learn about the events of August 6th and 9th, 1945.",
+      href: "/topics/bombing-events",
+      icon: "🗓️"
+    },
+    {
+      title: "Human Impact",
+      description: "Understand the casualties and human suffering caused by the atomic bombs.",
+      href: "/topics/human-impact",
+      icon: "👤"
+    },
+    {
+      title: "Debates",
+      description: "Examine ethical and strategic debates surrounding the decision to use atomic weapons.",
+      href: "/topics/debates",
+      icon: "⚖️"
+    },
+    {
+      title: "Global Impact",
+      description: "Study how the bombings shaped the nuclear age and international relations.",
+      href: "/topics/global-impact",
+      icon: "🌐"
+    },
+    {
+      title: "Legacy",
+      description: "Discover how the bombings are commemorated and their ongoing significance.",
+      href: "/topics/legacy",
+      icon: "🕊️"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-slate-50 overflow-hidden">
+      {/* Navigation */}
+      
+
+      {/* Hero Section */}
+      <div className="relative min-h-[90vh] flex items-center justify-center pt-16">
+        <Image
+          src="/memorial-bg.jpg"
+          alt="Hiroshima Peace Memorial"
+          fill
+          className="object-cover"
+          priority
+          quality={90}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/60 via-blue-800/50 to-slate-900/80"></div>
+        
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: Math.max(0, 1 - scrollY / 500) }}
+          className="absolute inset-0 bg-black/20"
+        ></motion.div>
+        
+        <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            transition={{ staggerChildren: 0.2 }}
+            className="space-y-6"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <motion.h1 
+              variants={fadeVariants}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold mb-4 text-white [text-shadow:_0_2px_20px_rgba(0,0,0,0.7)]"
+            >
+              Hiroshima and Nagasaki: <br className="hidden sm:block" />
+              <span className="text-3xl sm:text-4xl md:text-5xl">A Historical Overview</span>
+            </motion.h1>
+            
+            <motion.p 
+              variants={fadeVariants}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-lg sm:text-xl text-slate-100 mb-6 max-w-3xl mx-auto font-light leading-relaxed"
+            >
+              An educational resource exploring the atomic bombings of 1945, their causes, impact, and significance
+            </motion.p>
+
+            <motion.p 
+              variants={fadeVariants}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-lg sm:text-xl text-slate-100 mb-6 max-w-3xl mx-auto font-light leading-relaxed"
+            >
+              Made By Ankur Sharma, Period 6 Zuanich
+            </motion.p>
+            
+            <motion.div
+              variants={fadeVariants}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4"
+            >
+              <Link 
+                href="#explore" 
+                className="inline-flex items-center justify-center px-6 py-3 bg-red-700 hover:bg-red-800 
+                          text-white rounded-md transition-all duration-300 text-base sm:text-lg
+                          shadow-lg hover:shadow-xl transform hover:-translate-y-1 tracking-wide font-medium
+                          w-full sm:w-auto"
+              >
+                Explore Topics
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </Link>
+              
+              <Link 
+                href="/timeline" 
+                className="inline-flex items-center justify-center px-6 py-3 bg-transparent hover:bg-white/10 
+                          text-white border border-white/30 rounded-md transition-all duration-300 text-base sm:text-lg
+                          shadow-lg hover:shadow-xl w-full sm:w-auto"
+              >
+                View Timeline
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <motion.div 
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="text-white/70"
+          >
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </motion.div>
+        </motion.div>
+      </div>
+
+      {/* Overview Section */}
+      <section className="bg-white py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <motion.h2 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.7 }}
+            className="text-2xl sm:text-3xl font-serif font-bold mb-6 text-slate-800 text-center"
+          >
+            The Atomic Bombings: A Brief Overview
+          </motion.h2>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="prose prose-slate max-w-none"
+          >
+            <p>
+              On August 6 and 9, 1945, the United States dropped atomic bombs on the Japanese cities of Hiroshima and Nagasaki. 
+              These were the first and remain the only uses of nuclear weapons in warfare. The bombings killed between 100,000 
+              and 200,000 people, mostly civilians, and marked the end of World War II.
+            </p>
+            <p>
+              The bombings remain controversial to this day, with ongoing debate about whether they were necessary to end the 
+              war, their role in the resulting Cold War nuclear arms race, and their lasting impact on international relations 
+              and nuclear disarmament efforts.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Topics Section */}
+      <section id="explore" className="bg-slate-50 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <motion.h2 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.7 }}
+            className="text-2xl sm:text-3xl font-serif font-bold text-center mb-12 text-slate-800"
+          >
+            Explore Key Topics
+          </motion.h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {topics.map((topic, index) => (
+              <motion.div
+                key={topic.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+              >
+                <Link href={topic.href|| ""} className="block h-full">
+                  <div className="p-6">
+                    <div className="text-3xl mb-4">{topic.icon}</div>
+                    <h3 className="text-xl font-bold mb-2 text-slate-800">{topic.title}</h3>
+                    <p className="text-slate-600 text-sm mb-4">{topic.description}</p>
+                    <div className="flex items-center text-red-700 font-medium">
+                      <span>Learn more</span>
+                      <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Quote Section - Fix escaped quotes */}
+      <section className="bg-slate-900 text-white py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.7 }}
+          >
+            <svg className="w-12 h-12 mx-auto mb-6 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" />
+            </svg>
+            <blockquote className="text-xl sm:text-2xl font-serif italic font-light mb-6">
+              &ldquo;The atom bomb was no &lsquo;great decision.&rsquo; It was merely another powerful weapon in the arsenal of righteousness.&rdquo;
+            </blockquote>
+            <cite className="text-slate-400 not-italic">— Harry S. Truman</cite>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Resources Section */}
+      
+
+      {/* Footer */}
+      
     </div>
   );
 }
