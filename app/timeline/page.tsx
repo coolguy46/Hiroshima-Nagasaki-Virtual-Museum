@@ -31,14 +31,14 @@ const Timeline: FC = () => {
       title: "Japanese Surrender",
       description: "Emperor Hirohito announces Japan's surrender",
       image: "/images/japanese-surrender.jpg",
-      details: "The Emperor's radio broadcast marked Japan's formal surrender and the end of World War II."
+      details: "The Emperor's radio broadcast announced Japan's surrender. The formal surrender was signed on September 2, 1945."
     },
     {
       date: "1946-1950",
       title: "Occupation and Reconstruction",
       description: "Allied occupation of Japan and beginning of reconstruction efforts in Hiroshima and Nagasaki.",
       image: "/images/reconstruction.jpg",
-      details: "Under the leadership of General Douglas MacArthur, reconstruction began almost immediately, with Hiroshima being rebuilt as a peace memorial city."
+      details: "During the Allied occupation, Hiroshima and Nagasaki began rebuilding. Hiroshima was later designated a Peace Memorial City."
     }
   ];
 

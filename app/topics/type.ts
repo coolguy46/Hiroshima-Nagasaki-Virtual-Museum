@@ -11,10 +11,6 @@ export type TopicProps = {
       imageAlt?: string;
       imagePosition?: 'left' | 'right';
     }[];
-    quotes: {
-      text: string;
-      author: string;
-    }[];
     relatedTopics: {
       title: string;
       description: string;
@@ -22,4 +18,3 @@ export type TopicProps = {
       icon: string;
     }[];
   };
-  

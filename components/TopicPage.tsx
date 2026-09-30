@@ -19,10 +19,6 @@ type TopicProps = {
     imageAlt?: string;
     imagePosition?: 'left' | 'right';
   }[];
-  quotes: {
-    text: string;
-    author: string;
-  }[];
   relatedTopics: {
     title: string;
     description: string;
@@ -68,16 +64,6 @@ export default function TopicPage({
         image: "/japan-1945.jpg",
         imageAlt: "Bombed Japanese city in 1945",
         imagePosition: "right"
-      }
-    ],
-    quotes: [
-      {
-        text: "Now I am become Death, the destroyer of worlds.",
-        author: "J. Robert Oppenheimer, quoting the Bhagavad Gita after the Trinity test"
-      },
-      {
-        text: "The atom bomb was no 'great decision.' It was merely another powerful weapon in the arsenal of righteousness.",
-        author: "Harry S. Truman"
       }
     ],
     relatedTopics: [
@@ -236,32 +222,6 @@ export default function TopicPage({
         </div>
       </div>
       
-      {/* Quotes Section */}
-      <section className="bg-slate-900 text-white py-10 md:py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {topic.quotes.map((quote, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.7, delay: index * 0.2 }}
-                className="text-center"
-                viewport={{ once: true, margin: "-50px" }}
-              >
-                <svg className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-4 md:mb-6 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" />
-                </svg>
-                <blockquote className="text-base md:text-xl font-serif italic font-light mb-3 md:mb-4">
-                  &ldquo;{quote.text}&rdquo;
-                </blockquote>
-                <cite className="text-sm md:text-base text-slate-400 not-italic">— {quote.author}</cite>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Related Topics Section */}
       
       {/* Return Home Link */}

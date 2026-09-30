@@ -5,18 +5,18 @@ export default function DebatesPage() {
   const topicData : TopicProps= {
     title: "Debates on Hiroshima and Nagasaki",
     icon: "⚖️",
-    heroImage: "/debate-hiroshima-nagasaki.jpg",
-    heroAlt: "Debate on the atomic bombings",
+    heroImage: "/images/decision-to-bomb.jpg",
+    heroAlt: "President Harry S. Truman speaking at a desk",
     introduction: "The decision to drop atomic bombs on Hiroshima and Nagasaki remains one of the most debated topics in history. Some argue it was necessary to end World War II quickly, while others believe it was unnecessary and inhumane.",
     sections: [
       {
         title: "Argument: The Bombings Were Necessary",
         content: [
           "Supporters of the decision argue that the bombings forced Japan to surrender, preventing a long and deadly invasion.",
-          "An invasion of Japan could have caused millions of deaths on both sides, so using the bombs was seen as a way to end the war quickly and save lives overall."
+          "Predictions of casualties from an invasion varied widely; some reached into the millions. Supporters argue that using the bombs ended the war sooner and avoided an invasion."
         ],
         image: "/images/decision-to-bomb.jpg",
-        imageAlt: "Military leaders discussing war strategies",
+        imageAlt: "President Harry S. Truman speaking at a desk",
         imagePosition: "right"
       },
       {
@@ -26,20 +26,10 @@ export default function DebatesPage() {
           "They believe that alternatives, such as demonstrating the bomb’s power on an uninhabited area or continuing conventional warfare, could have ended the war without using nuclear weapons."
         ],
         image: "/images/nagasaki-bombing.jpg",
-        imageAlt: "Civilians suffering after the bombing",
+        imageAlt: "Ruins of Nagasaki after the atomic bombing",
         imagePosition: "left"
       },
       
-    ],
-    quotes: [
-      {
-        text: "The final and terrible war crime of the United States was the atomic bombing of Japan.",
-        author: "Historian Howard Zinn"
-      },
-      {
-        text: "The greatest thing from our standpoint was that it ended the war.",
-        author: "President Harry S. Truman"
-      }
     ],
     relatedTopics: [
       {

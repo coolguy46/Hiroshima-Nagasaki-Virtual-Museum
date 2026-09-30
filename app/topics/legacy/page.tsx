@@ -5,8 +5,8 @@ export default function LegacyCommemorationPage() {
   const topicData: TopicProps = {
     title: "Legacy and Commemoration of Hiroshima and Nagasaki",
     icon: "🕊️",
-    heroImage: "/legacy-memorial.jpg",
-    heroAlt: "Hiroshima Peace Memorial with paper cranes",
+    heroImage: "/images/hiroshima-memorial.jpg",
+    heroAlt: "Cenotaph in Hiroshima Peace Memorial Park",
     introduction: "The bombings of Hiroshima and Nagasaki left a profound impact on the world, leading to ongoing efforts for remembrance, education, and nuclear disarmament. Survivors and activists continue to share their stories, ensuring that history is never forgotten.",
     sections: [
       {
@@ -16,7 +16,7 @@ export default function LegacyCommemorationPage() {
           "The Hiroshima Peace Memorial Park and the Nagasaki Atomic Bomb Museum serve as powerful reminders of the tragic events and advocate for a world without nuclear weapons."
         ],
         image: "/images/hiroshima-memorial.jpg",
-        imageAlt: "Hiroshima Peace Memorial Park",
+        imageAlt: "Cenotaph in Hiroshima Peace Memorial Park",
         imagePosition: "right"
       },
       
@@ -30,16 +30,6 @@ export default function LegacyCommemorationPage() {
         image: "/images/peace-ceremony.jpg",
         imageAlt: "Lanterns floating on a river in memory of atomic bomb victims",
         imagePosition: "left"
-      }
-    ],
-    quotes: [
-      {
-        text: "We must never forget Hiroshima and Nagasaki. The memory of the past must guide us towards a peaceful future.",
-        author: "Ban Ki-moon, former UN Secretary-General"
-      },
-      {
-        text: "Hiroshima and Nagasaki are not just about history. They are a warning for the future.",
-        author: "Setsuko Thurlow, atomic bomb survivor and activist"
       }
     ],
     relatedTopics: [

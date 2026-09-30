@@ -5,9 +5,9 @@ export default function GlobalImpactPage() {
   const topicData : TopicProps= {
     title: "Global Impact of Hiroshima and Nagasaki",
     icon: "🌍",
-    heroImage: "/global-impact.jpg",
-    heroAlt: "World map showing nuclear impact",
-    introduction: "The bombings of Hiroshima and Nagasaki changed the world forever. They not only ended World War II but also sparked debates, nuclear arms races, and global movements to prevent future nuclear warfare.",
+    heroImage: "/images/nuclear-age.jpg",
+    heroAlt: "Nuclear explosion",
+    introduction: "The bombings of Hiroshima and Nagasaki changed the world forever. They contributed to the end of World War II and sparked debates, nuclear arms races, and global movements to prevent future nuclear warfare.",
     sections: [
       {
         title: "The Start of the Nuclear Age",
@@ -26,21 +26,11 @@ export default function GlobalImpactPage() {
           "This led to the development of hydrogen bombs, intercontinental missiles, and a global fear of nuclear war."
         ],
         image: "/images/cold-war-arms-race.jpg",
-        imageAlt: "US and Soviet nuclear stockpiles growing",
+        imageAlt: "Graphic of the United States and Soviet Union flags",
         imagePosition: "left"
       },
       
       
-    ],
-    quotes: [
-      {
-        text: "The release of atomic energy has not created a new problem. It has merely made more urgent the necessity of solving an existing one.",
-        author: "Albert Einstein"
-      },
-      {
-        text: "We may be likened to two scorpions in a bottle, each capable of killing the other, but only at the risk of his own life.",
-        author: "J. Robert Oppenheimer, on nuclear deterrence"
-      }
     ],
     relatedTopics: [
       {

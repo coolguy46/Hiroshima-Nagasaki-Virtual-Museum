@@ -183,8 +183,8 @@ export default function Home() {
           >
             <p>
               On August 6 and 9, 1945, the United States dropped atomic bombs on the Japanese cities of Hiroshima and Nagasaki. 
-              These were the first and remain the only uses of nuclear weapons in warfare. The bombings killed between 100,000 
-              and 200,000 people, mostly civilians, and marked the end of World War II.
+              These were the first and remain the only uses of nuclear weapons in warfare. Hiroshima City estimates about 140,000 deaths
+              and Nagasaki City about 74,000 by the end of 1945. The bombings and the Soviet Union&apos;s entry into the war preceded Japan&apos;s surrender.
             </p>
             <p>
               The bombings remain controversial to this day, with ongoing debate about whether they were necessary to end the 
@@ -233,25 +233,6 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Quote Section - Fix escaped quotes */}
-      <section className="bg-slate-900 text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.7 }}
-          >
-            <svg className="w-12 h-12 mx-auto mb-6 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" />
-            </svg>
-            <blockquote className="text-xl sm:text-2xl font-serif italic font-light mb-6">
-              &ldquo;The atom bomb was no &lsquo;great decision.&rsquo; It was merely another powerful weapon in the arsenal of righteousness.&rdquo;
-            </blockquote>
-            <cite className="text-slate-400 not-italic">— Harry S. Truman</cite>
-          </motion.div>
         </div>
       </section>
 
